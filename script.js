@@ -13,7 +13,6 @@ function computerPlay() {
 }
 
 function oneRoundGame(playerMove, computerMove) {
-  playerMove = playerMove.toLowerCase();
   if (playerMove === moveArray[0]) {
     if (computerMove === moveArray[1]) {
       return `You lose! ${moveArray[1]} beats ${moveArray[0]}.`;
@@ -32,5 +31,32 @@ function oneRoundGame(playerMove, computerMove) {
     } else {
       return "You win!";
     }
+  }
+}
+
+function game() {
+  let computerScore = 0;
+  let playerScore = 0;
+  for (let i = 0; i < 5; i++) {
+    let playerMove = prompt("What is your move? Leave blank to quit.", "No move.");
+    let computerMove = computerPlay();
+    if (moveArray.includes(playerMove.toLowerCase())) {
+      let result  = oneRoundGame(playerMove, computerMove);
+      if (result === "You win!") {
+        playerScore++;
+      } else {
+        computerScore++;
+      }
+      console.log(`You: ${playerScore}, Comp: ${computerScore}`);
+    } else if (playerMove === "No move.") {
+      console.log("Thanks for playing.");
+    } else {
+      console.log("Check ya spellin mate.")
+    }
+  }
+  if (computerScore > playerScore) {
+    console.log("You lost!")
+  } else {
+    console.log("Congratulations!")
   }
 }

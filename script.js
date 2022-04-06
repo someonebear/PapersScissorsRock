@@ -43,8 +43,10 @@ function game() {
     if (moveArray.includes(playerMove.toLowerCase())) {
       let result  = oneRoundGame(playerMove, computerMove);
       if (result === "You win!") {
+        console.log("Nice!")
         playerScore++;
       } else {
+        console.log("You suk.")
         computerScore++;
       }
       console.log(`You: ${playerScore}, Comp: ${computerScore}`);

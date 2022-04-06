@@ -1,4 +1,4 @@
-const moveArray = ["Paper", "Scissors", "Rock"];
+const moveArray = ["paper", "scissors", "rock"];
 
 function randInt(min, max) {
   min = Math.ceil(min);
@@ -9,6 +9,28 @@ function randInt(min, max) {
 
 function computerPlay() {
   let move = randInt(0, 2);
-  // return moveArray[move];
-  return "hi";
+  return moveArray[move];
+}
+
+function oneRoundGame(playerMove, computerMove) {
+  playerMove = playerMove.toLowerCase();
+  if (playerMove === moveArray[0]) {
+    if (computerMove === moveArray[1]) {
+      return `You lose! ${moveArray[1]} beats ${moveArray[0]}.`;
+    } else {
+      return "You win!";
+    }
+  } else if (playerMove === moveArray[1]) {
+    if (computerMove === moveArray[2]) {
+      return `You lose! ${moveArray[2]} beats ${moveArray[1]}.`;
+    } else {
+      return "You win!";
+    }
+  } else{
+    if (computerMove === moveArray[0]) {
+      return `You lose! ${moveArray[0]} beats ${moveArray[2]}.`;
+    } else {
+      return "You win!";
+    }
+  }
 }

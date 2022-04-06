@@ -50,13 +50,16 @@ function game() {
       console.log(`You: ${playerScore}, Comp: ${computerScore}`);
     } else if (playerMove === "No move.") {
       console.log("Thanks for playing.");
+      break;
     } else {
       console.log("Check ya spellin mate.")
     }
   }
   if (computerScore > playerScore) {
     console.log("You lost!")
-  } else {
+  } else if (playerScore > computerScore) {
     console.log("Congratulations!")
+  } else {
+    console.log("Bye!")
   }
 }

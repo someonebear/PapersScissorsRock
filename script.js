@@ -46,7 +46,16 @@ buttons.forEach((button) => {
 
 function displayScore() {
   const div = document.querySelector(".results");
+  if (playerScore == 5) {
+    div.textContent = `You: ${playerScore}, Computer: ${compScore} You win!`;
+    return 1;
+  } else if (compScore == 5) {
+    div.textContent = `You: ${playerScore}, Computer: ${compScore} You lose!`;
+    return 1;
+  }
+
   div.textContent = `You: ${playerScore}, Computer: ${compScore}`;
+  
 }
 
 function game() {
@@ -57,6 +66,7 @@ function game() {
       compScore++;
     }
     console.log(result);
-    displayScore();
-    
+    if (displayScore()) {
+      return;
+    }
 }

@@ -1,4 +1,6 @@
 const moveArray = ["paper", "scissors", "rock"];
+let playerScore = 0;
+let compScore = 0;
 
 function randInt(min, max) {
   min = Math.ceil(min);
@@ -38,6 +40,13 @@ const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    alert(button.id);
+    let result = oneRoundGame(button.id, computerPlay());
+    if (result === "You win!") {
+      playerScore++;
+    } else {
+      compScore++;
+    }
+    displayScore();
+    
   });
 });

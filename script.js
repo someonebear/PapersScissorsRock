@@ -39,19 +39,24 @@ function oneRoundGame(playerMove, computerMove) {
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    let result = oneRoundGame(button.id, computerPlay());
-    if (result === "You win!") {
-      playerScore++;
-    } else {
-      compScore++;
-    }
-    displayScore();
-    
-  });
+  button.addEventListener("click", game)
+  // The second argument should not have brackets.
+  // ie. game not game()
 });
 
 function displayScore() {
   const div = document.querySelector(".results");
   div.textContent = `You: ${playerScore}, Computer: ${compScore}`;
+}
+
+function game() {
+  let result = oneRoundGame(this.id, computerPlay());
+    if (result === "You win!") {
+      playerScore++;
+    } else {
+      compScore++;
+    }
+    console.log(result);
+    displayScore();
+    
 }

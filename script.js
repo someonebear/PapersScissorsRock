@@ -37,11 +37,14 @@ function oneRoundGame(playerMove, computerMove) {
 function game() {
   let computerScore = 0;
   let playerScore = 0;
+
   for (let i = 0; i < 5; i++) {
     let playerMove = prompt("What is your move? Leave blank to quit.", "No move.");
     let computerMove = computerPlay();
+
     if (moveArray.includes(playerMove.toLowerCase())) {
       let result  = oneRoundGame(playerMove, computerMove);
+
       if (result === "You win!") {
         console.log("Nice!")
         playerScore++;
@@ -50,9 +53,11 @@ function game() {
         computerScore++;
       }
       console.log(`You: ${playerScore}, Comp: ${computerScore}`);
+
     } else if (playerMove === "No move.") {
       console.log("Thanks for playing.");
       break;
+      
     } else {
       console.log("Check ya spellin mate.")
     }

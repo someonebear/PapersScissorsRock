@@ -34,39 +34,10 @@ function oneRoundGame(playerMove, computerMove) {
   }
 }
 
-function game() {
-  let computerScore = 0;
-  let playerScore = 0;
+const buttons = document.querySelectorAll("button");
 
-  for (let i = 0; i < 5; i++) {
-    let playerMove = prompt("What is your move? Leave blank to quit.", "No move.");
-    let computerMove = computerPlay();
-
-    if (moveArray.includes(playerMove.toLowerCase())) {
-      let result  = oneRoundGame(playerMove, computerMove);
-
-      if (result === "You win!") {
-        console.log("Nice!")
-        playerScore++;
-      } else {
-        console.log("You suk.")
-        computerScore++;
-      }
-      console.log(`You: ${playerScore}, Comp: ${computerScore}`);
-
-    } else if (playerMove === "No move.") {
-      console.log("Thanks for playing.");
-      break;
-      
-    } else {
-      console.log("Check ya spellin mate.")
-    }
-  }
-  if (computerScore > playerScore) {
-    console.log("You lost!")
-  } else if (playerScore > computerScore) {
-    console.log("Congratulations!")
-  } else {
-    console.log("Bye!")
-  }
-}
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    alert(button.id);
+  });
+});

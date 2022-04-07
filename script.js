@@ -50,3 +50,8 @@ buttons.forEach((button) => {
     
   });
 });
+
+function displayScore() {
+  const div = document.querySelector(".results");
+  div.textContent = `You: ${playerScore}, Computer: ${compScore}`;
+}
